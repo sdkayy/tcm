@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Whitelist extends Model
 {
-    protected $fillable = [
+     protected $fillable = [
     	'field' ,'value', 'admin_id'
     ];
 }
