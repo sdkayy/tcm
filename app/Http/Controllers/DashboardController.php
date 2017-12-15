@@ -37,7 +37,7 @@ class DashboardController extends Controller
             $type = 'danger';
             $message = 'AYY! You no sposed to be here my friend!';
             $icon = 'ti-hand-stop';
-            return redirect()->back()->with(compact(['type', 'message', 'icon']));
+            return redirect('dashboard')->with(compact(['type', 'message', 'icon']));
         }
         $admins = User::where('id', '>', '0')->paginate(10, ['*'], 'admins');
         $lastFive = Record::orderByRaw('id desc')->take(5)->get();
