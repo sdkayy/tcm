@@ -32,6 +32,13 @@ class DashboardController extends Controller
 
     public function manage()
     {
+        if(auth()->user()->admin_level < 2)
+        {
+            $type = 'danger';
+            $message = 'AYY! You no sposed to be here my friend!';
+            $icon = 'ti-hand-stop';
+            return redirect()->back()->with(compact(['type', 'message', 'icon']));
+        }
         $admins = User::where('id', '>', '0')->paginate(10, ['*'], 'admins');
         $lastFive = Record::orderByRaw('id desc')->take(5)->get();
         $whitelists = Whitelist::where('id', '>', '0')-> paginate(10, ['*'], 'whitelist');
