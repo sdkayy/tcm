@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Record;
 use App\Whitelist;
+use App\Requests;
 use Emarref\Jwt\Claim;
 use Emarref\Jwt\Token;
 use Emarref\Jwt\Jwt;
@@ -34,7 +35,7 @@ class ApiController extends Controller
 
             if($checkWhiteList->count() > 0)
             {
-                return json_encode(array("success" => true, "info" => "whitelisted"));
+                return json_encode(array("success" => true, "extra" => "whitelisted"));
             }
 
     		$record = Record::create([
@@ -50,6 +51,24 @@ class ApiController extends Controller
     	{
     		return json_encode(array("success" => false, "error" => "Sam!_That_is_not_Rubby!"));
     	}
+    }
+
+    public function checkSession()
+    {
+        if($this->verifySession(request()->header('jwt')))
+        {
+            return json_encode(array("success" => true, "extra" => "Session is valid"));
+        }
+        else
+        {
+            Requests::create([
+                'from_ip' => request()->ip(),
+                'header' => request()->header('jwt'),
+                'params' => 'xd',
+                'response' => 'bad'
+            ]);
+            return json_encode(array("success" => false, "error" => "Sam!_That_is_not_Rubby!"));
+        }
     }
 
     public function get()

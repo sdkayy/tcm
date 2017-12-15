@@ -15,5 +15,6 @@ class VerifyCsrfToken extends Middleware
         'api/records/add',
         'api/session/get',
         'api/records/get',
+        'api/session/verify'
     ];
 }

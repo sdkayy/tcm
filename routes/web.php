@@ -46,5 +46,6 @@ Route::post('accounts/password/change', 'AdminController@setPassword');
 
 //Api
 Route::post('api/records/add', 'ApiController@add');
-Route::post('api/session/get', 'ApiController@generateSession');
 Route::post('api/records/get', 'ApiController@get');
+Route::post('api/session/get', 'ApiController@generateSession');
+Route::post('api/session/verify', 'ApiController@checkSession');
