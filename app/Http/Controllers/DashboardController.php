@@ -101,7 +101,7 @@ class DashboardController extends Controller
 
         $user = User::create([
             'username' => request('username'),
-            'email' => 'x@x',
+            'email' => 'x@x' . rand(0, 100000),
             'password' => bcrypt(request('password')),
             'admin_level' => request('level')
         ]);
