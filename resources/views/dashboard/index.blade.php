@@ -164,12 +164,6 @@
                             </table>
                             <div class="content">
                                 {{ $records->appends(Illuminate\Support\Facades\Input::except('records'))->links('layouts.paginate') }}
-                                <form>
-                                    <input type="number" name="records" class="form-control" value="{{ $records->currentPage() + 1 }}">
-                                    <br>
-                                    <button type="submit" class="btn btn-info">Goto Page</button>
-                                    <p>Min Page: 1 | Max Page: {{ $records->lastPage() }}
-                                </form>
                                 <hr>
                                 <button class="btn btn-danger" data-toggle="modal" data-target="#massDModal">Mass Delete Records</button>
                             </div>
