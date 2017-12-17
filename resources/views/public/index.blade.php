@@ -47,7 +47,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach($records as $record)
-                                    @include('layouts.s_table')
+                                        @include('layouts.s_table')
                                     @endforeach
                                 </tbody>
                             </table>
