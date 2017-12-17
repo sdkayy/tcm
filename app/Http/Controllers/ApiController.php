@@ -84,9 +84,9 @@ class ApiController extends Controller
     public function get()
     {
         if(request('filter') == null || request('value') == null)
-            $records = Record::orderByRaw('id desc')->paginate(25, ['*'], 'records');
+            $records = Record::orderByRaw('id desc')->paginate(30, ['*'], 'records');
         else
-            $records = Record::where(request('filter'), 'like', '%' . request('value') . '%')->orderByRaw('id desc')->paginate(25, ['*'], 'records');
+            $records = Record::where(request('filter'), 'like', '%' . request('value') . '%')->orderByRaw('id desc')->paginate(30, ['*'], 'records');
         return json_encode($records);
     }
 
