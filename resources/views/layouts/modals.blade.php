@@ -115,3 +115,38 @@
     </div>
   </div>
 </div>
+<!-- Public Search Modal -->
+<div class="modal fade" id="searchRecords" tabindex="-1" role="dialog" aria-labelledby="addAdm" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addAdm">Search Records</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <form method="GET">
+          <div class="modal-body">
+            <div class="content">
+                <div class="form-group">
+                    <label>Field</label>
+                    <select class="form-control" name="filter">
+                      <option value="user_added">Added By User</option>
+                      <option value="gamertag">Gamertag</option>
+                      <option value="ip">Same IP</option>
+                      <option value="xuid">Same XUID</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Value to match</label>
+                    <input placeholder="Enter Value" class="form-control" type="text" name="value">
+                </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-info">Search</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>

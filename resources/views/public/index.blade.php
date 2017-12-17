@@ -36,23 +36,27 @@
 			            </div>
 			            <div class="content table-responsive table-full-width">
 			                <table class="table table-striped">
-			                     <thead>
-			                        <th>ID</th>
-			                       	<th>Logged By</th>
-			                    	<th>Gamertag</th>
-			                    	<th>XUID</th>
-			                       	<th>IP / Port</th>
-			                      	<th>Created At</th>
-			                      	<th>Actions</th>
-			                      </thead>
-			                      <tbody>
-			                     	@foreach($records as $record)
-                                        @include('layouts.s_table')
+                                <thead>
+                                    <th>ID</th>
+                                    <th>Logged By</th>
+                                    <th>Gamertag</th>
+                                    <th>XUID</th>
+                                    <th>IP / Port</th>
+                                    <th>Created At</th>
+                                    <th>Actions</th>
+                                </thead>
+                                <tbody>
+                                    @foreach($records as $record)
+                                    @include('layouts.s_table')
                                     @endforeach
-			                      </tbody>
-			                 </table>
-
-			             </div>
+                                </tbody>
+                            </table>
+                            <div class="content">
+                                {{ $records->appends(Illuminate\Support\Facades\Input::except('records'))->links('layouts.paginate') }}
+                                <hr>
+                                <button class="btn btn-info" data-toggle="modal" data-target="#searchRecords">Search</button>
+                            </div>
+                        </div>
 			        </div>
 			    </div>
 			</div>

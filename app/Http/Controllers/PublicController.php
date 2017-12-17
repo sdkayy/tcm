@@ -10,9 +10,9 @@ class PublicController extends Controller
     public function index()
     {
     	if(request('filter') == null || request('value') == null)
-    	   $records = Record::orderByRaw('id desc')->paginate(10, ['*'], 'records');
+    	   $records = Record::orderByRaw('id desc')->paginate(15, ['*'], 'records');
         else
-            $records = Record::where(request('filter'), '=', request('value'))->orderByRaw('id desc')->paginate(10, ['*'], 'records');
+            $records = Record::where(request('filter'), '=', request('value'))->orderByRaw('id desc')->paginate(15, ['*'], 'records');
     	return view('public.index', compact('records'));
     }
 }
