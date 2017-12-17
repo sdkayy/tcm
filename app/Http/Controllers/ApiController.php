@@ -33,6 +33,17 @@ class ApiController extends Controller
                                         ->orWhere('value', request('ip'))
                                         ->get();
 
+            $checkDuplicate = Record::where([
+                'gamertag', request('gamertag'),
+                'xuid', request('xuid'),
+                'ip', request('ip')
+            ])->get();
+
+            if($checkDuplicate->count() > 0)
+            {
+                return json_encode(array("success" => true, "extra" => "duplicate entry"));
+            }
+
             if($checkWhiteList->count() > 0)
             {
                 return json_encode(array("success" => true, "extra" => "whitelisted"));
@@ -77,7 +88,7 @@ class ApiController extends Controller
             $records = Record::orderByRaw('id desc')->paginate(25, ['*'], 'records');
         else
             $records = Record::where(request('filter'), 'like', '%' . request('value') . '%')->orderByRaw('id desc')->paginate(25, ['*'], 'records');
-        return json_encode(array("records" => $records));
+        return json_encode($records);
     }
 
     public function generateSession() 
