@@ -93,7 +93,7 @@ class ApiController extends Controller
 		$algorithm = new Hs256('t$c$m$a$p$i');
 		$encryption = Factory::create($algorithm);
 		$serializedToken = $jwt->serialize($token, $encryption);
-		return json_encode(array("status" => true, "jwt" => $serializedToken));
+		return json_encode(array("success" => true, "jwt" => $serializedToken));
     }
 
     public function verifySession($token)
