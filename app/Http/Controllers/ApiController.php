@@ -33,11 +33,10 @@ class ApiController extends Controller
                                         ->orWhere('value', request('ip'))
                                         ->get();
 
-            $checkDuplicate = Record::where([
-                'gamertag', request('gamertag'),
-                'xuid', request('xuid'),
-                'ip', request('ip')
-            ])->get();
+            $checkDuplicate = Record::where('gamertag', request('gamertag'))
+            ->where('xuid', request('xuid'))
+            ->where('ip', request('ip'))
+            ->get();
 
             if($checkDuplicate->count() > 0)
             {
