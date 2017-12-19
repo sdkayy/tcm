@@ -20,9 +20,9 @@ class DashboardController extends Controller
             return redirect('/accounts/password');
         }
         if(request('filter') == null || request('value') == null)
-    	   $records = Record::orderByRaw('id desc')->paginate(15, ['*'], 'records');
+    	   $records = Record::orderByRaw('id desc')->paginate(10, ['*'], 'records');
         else
-            $records = Record::where(request('filter'), '=', request('value'))->orderByRaw('id desc')->paginate(15, ['*'], 'records');
+            $records = Record::where(request('filter'), '=', request('value'))->orderByRaw('id desc')->paginate(10, ['*'], 'records');
         $lastFive = Record::orderByRaw('id desc')->take(5)->get();
     	$recordCount = Record::all()->count();
     	$recordHCount = Record::LastHour()->count();
