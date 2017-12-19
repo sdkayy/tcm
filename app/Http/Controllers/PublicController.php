@@ -12,7 +12,7 @@ class PublicController extends Controller
     	if(request('filter') == null || request('value') == null)
     	   $records = Record::orderByRaw('id desc')->paginate(15, ['*'], 'records');
         else
-            $records = Record::where(request('filter'), '=', request('value'))->orderByRaw('id desc')->paginate(15, ['*'], 'records');
-    	return view('public.index', compact('records'));
+			$records = Record::where(request('filter'), 'like', '%' . str_replace("+","%20",request('value')) . '%')->orderByRaw('id desc')->paginate(30, ['*'], 'records');    	
+		return view('public.index', compact('records'));
     }
 }

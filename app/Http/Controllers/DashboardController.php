@@ -22,7 +22,7 @@ class DashboardController extends Controller
         if(request('filter') == null || request('value') == null)
     	   $records = Record::orderByRaw('id desc')->paginate(10, ['*'], 'records');
         else
-            $records = Record::where(request('filter'), 'like', '%' . str_replace(" ","%20",request('value')) . '%')->orderByRaw('id desc')->paginate(10, ['*'], 'records');
+            $records = Record::where(request('filter'), 'like', '%' . str_replace("+","%20",request('value')) . '%')->orderByRaw('id desc')->paginate(10, ['*'], 'records');
         $lastFive = Record::orderByRaw('id desc')->take(5)->get();
     	$recordCount = Record::all()->count();
     	$recordHCount = Record::LastHour()->count();
