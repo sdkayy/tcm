@@ -53,7 +53,8 @@ class ApiController extends Controller
     			'gamertag' => request('gamertag'),
     			'xuid' => request('xuid'),
     			'ip' => request('ip'),
-    			'port' => request('port')
+    			'port' => request('port'),
+                'created_at' => request('deb_date')
     		]);
     		return json_encode(array("success" => true));
     	}
@@ -67,7 +68,7 @@ class ApiController extends Controller
     {
         if($this->verifySession(request()->header('jwt')))
         {
-            return json_encode(array("success" => true, "extra" => "Session is valid"));
+            return json_encode(array("success" => true, "extra" => "Session is valid", "jwt" => request()->header('jwt')));
         }
         else
         {
