@@ -109,7 +109,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-info">Add Admin</button>
+          <button type="submit" class="btn btn-info">Add Whitelist</button>
         </div>
       </form>
     </div>
