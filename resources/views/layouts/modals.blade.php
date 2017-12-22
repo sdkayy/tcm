@@ -115,7 +115,7 @@
     </div>
   </div>
 </div>
-<!-- Public Search Modals -->
+<!-- Public Search Modal -->
 <div class="modal fade" id="searchRecords" tabindex="-1" role="dialog" aria-labelledby="addAdm" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
