@@ -8,7 +8,7 @@
 	<div class="sidebar-wrapper">
         <div class="logo">
             <a href="{{ route('dashboard') }}" class="simple-text">
-                TCM Logger
+                XD Logger
             </a>
         </div>
 
